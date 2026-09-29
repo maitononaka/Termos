@@ -1,0 +1,52 @@
+:root{
+  --bg:#000;--fg:#cfcfcf;--dim:#707070;--accent:#e6e6e6;--red:#ff7070;--amber:#e6e6e6;--blue:#9ecbff;
+  --panel:#000;--border:#303030;--shadow:none;--mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Noto Sans Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#000;color:var(--fg);font-family:var(--mono);font-size:12px;overflow:hidden}
+button,input,textarea,select{font:inherit}
+button{cursor:pointer}.hidden{display:none!important}.screen{position:fixed;inset:0}
+
+/* ===== text-mode boot ===== */
+#boot{display:block;padding:14px 16px;background:#000;color:#cfcfcf;font-size:12px}
+.boot-header{margin:0 0 10px;font:12px/1.4 var(--mono);color:#fff}
+.boot-log{width:100%;height:210px;padding:0;background:#000;border:0;box-shadow:none;overflow:hidden}
+.boot-log div{margin:0 0 2px}.boot-progress{width:100%;height:1px;border:0;background:#222;margin:8px 0}.boot-progress span{display:block;height:1px;width:0;background:#aaa;transition:width .12s linear}.boot-hint{margin-top:8px;color:#777;font-size:11px}.boot-logo,.boot-sub{display:none}
+
+/* ===== optional text GRUB ===== */
+.grub-menu{width:100%;margin:12px 0 0;border:0;background:#000;box-shadow:none;padding:0}.grub-title{font-weight:700;color:#fff}.grub-sub{display:none}.grub-item{padding:1px 0;color:#aaa;border:0}.grub-item.selected{color:#fff;background:#000;border:0}.grub-item.selected::first-letter{color:#fff}.grub-help{border-top:1px solid #222;margin-top:8px;padding-top:7px;color:#777;font-size:11px}
+
+/* ===== text-mode firmware ===== */
+#uefi{background:#000;color:#d5d5d5}
+.uefi-shell{height:100%;display:flex;flex-direction:column}
+.uefi-top,.uefi-bottom{height:28px;padding:0 10px;display:flex;align-items:center;justify-content:space-between;border:0;background:#000;color:#fff}
+.uefi-bottom{height:24px;justify-content:flex-start;gap:18px;border-top:1px solid #222;color:#777;font-size:11px}
+.uefi-body{flex:1;min-height:0;display:flex;border-top:1px solid #222}
+.uefi-tabs{width:96px;padding:7px 0;background:#000;border-right:1px solid #222;display:flex;flex-direction:column;gap:0}
+.uefi-tabs button{padding:4px 8px;border:0;border-radius:0;background:#000;color:#aaa;text-align:left}
+.uefi-tabs button.active,.uefi-tabs button:hover{background:#fff;color:#000}
+.uefi-content{flex:1;overflow:auto;padding:10px 12px}
+.uefi-grid{display:block}.uefi-card{background:#000;border:0;padding:0;margin:0 0 14px}.uefi-card h3{margin:0 0 7px;font-size:12px;color:#fff;font-weight:700}
+.kv{display:grid;grid-template-columns:180px 1fr;gap:2px 12px;font-size:11px}.kv b{color:#777;font-weight:400}.uefi-select,.uefi-num{background:#000;color:#ddd;border:1px solid #444;border-radius:0;padding:4px}.uefi-switch{display:inline-flex;gap:7px;align-items:center}.danger{color:#ff7070}.warning{color:#ddd}.good{color:#ddd}.muted{color:#777}.small{font-size:11px;color:#777}
+
+/* ===== login / first boot: console-like ===== */
+#login,#setup{display:flex;justify-content:flex-start;align-items:flex-start;padding:28px 18px;background:#000}
+.login-card{width:min(520px,96vw);padding:0;border:0;background:#000;box-shadow:none}
+.login-title{font-size:14px;font-weight:700;margin-bottom:8px;color:#fff}.login-card form{display:flex;flex-direction:column;gap:7px;margin-top:14px}.login-card label{font-size:12px;color:#888;display:block}.login-card input{display:block;width:100%;max-width:380px;margin-top:3px;padding:3px 0;background:#000;color:#ddd;border:0;border-bottom:1px solid #333;outline:0}.login-card input:focus{border-color:#aaa}.login-card button{width:max-content;padding:3px 8px;border:1px solid #444;background:#000;color:#ddd}.check{display:flex;align-items:center;gap:8px}.check input{width:auto;margin:0}.login-msg{min-height:18px;margin-top:8px;font-size:11px;color:#ff7070}
+
+/* ===== terminal ===== */
+#os{display:flex;flex-direction:column;background:#000}
+.osbar{display:none}
+.terminal{flex:1;overflow:auto;padding:10px 12px 2px;font-size:12px;line-height:1.35;white-space:normal}
+.terminal-line{margin:0 0 2px}.terminal .cmdout{white-space:pre-wrap}
+.terminal-input-row{display:flex;gap:5px;align-items:flex-start;padding:5px 12px 10px;border:0;background:#000}
+.terminal-input-row #prompt{color:#ddd;white-space:nowrap;padding-top:0}.terminal-input-row textarea{flex:1;resize:none;overflow:hidden;min-height:16px;max-height:120px;background:transparent;color:#ddd;border:0;outline:0;padding:0;line-height:1.35}
+pre{margin:0}.ansi-green,.ansi-yellow,.ansi-blue,.ansi-red{color:inherit}.ansi-dim{color:#666}.ansi-bold{font-weight:700}
+.task-table{width:100%;border-collapse:collapse;font-size:11px}.task-table th,.task-table td{text-align:left;border:0;padding:2px 5px}.task-table th{color:#777;font-weight:400}.reg-tree{font-size:11px}.reg-node{padding-left:10px}.reg-key{color:#aaa}.reg-val{color:#ccc}.chip{display:inline-block;padding:0 4px;border:1px solid #444;border-radius:0;margin-right:5px}
+
+/* ===== Nyan Cat ===== */
+.nyan-wrap{display:flex;justify-content:center;align-items:center;min-height:260px;position:relative;overflow:hidden;background:#000}.nyan{font-size:56px;animation:fly 3s linear infinite;position:absolute}.rainbow{font-size:25px;letter-spacing:-5px;animation:rainbow 1s linear infinite}.starfield{position:absolute;inset:0;background:radial-gradient(circle at 10% 20%,#fff 0 1px,transparent 2px),radial-gradient(circle at 80% 30%,#fff 0 1px,transparent 2px),radial-gradient(circle at 55% 70%,#fff 0 1px,transparent 2px),radial-gradient(circle at 20% 80%,#fff 0 1px,transparent 2px);opacity:.7}.nyan-cat{font-size:70px;filter:saturate(2)}.nyan-text{position:absolute;left:50%;bottom:18px;transform:translateX(-50%);color:#ddd;font-size:11px}
+@keyframes fly{0%{left:-15%}100%{left:110%}}@keyframes rainbow{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+
+.vi-overlay{position:fixed;inset:0;z-index:100;background:#000;color:#ddd;display:flex;flex-direction:column;font-family:var(--mono)}.vi-top,.vi-status{padding:5px 8px;background:#000;border-bottom:1px solid #222;color:#aaa;font-size:11px}.vi-status{border-top:1px solid #222;border-bottom:0;color:#777}.vi-overlay textarea{flex:1;width:100%;resize:none;border:0;outline:0;background:#000;color:#ddd;padding:10px;font:12px/1.4 var(--mono);tab-size:2}
+@media(max-width:700px){.uefi-tabs{width:82px}.kv{grid-template-columns:135px 1fr}.uefi-bottom{gap:10px;overflow:auto;white-space:nowrap}.terminal{font-size:12px}.terminal-input-row #prompt{font-size:11px}}
