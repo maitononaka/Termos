@@ -1,0 +1,71 @@
+:root{
+  --bg:#000;
+  --fg:#d0d0d0;
+  --dim:#696969;
+  --bright:#fff;
+  --err:#ff7777;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Noto Sans Mono",monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#000;color:var(--fg);font-family:var(--mono);font-size:12px;overflow:hidden;overscroll-behavior:none;-webkit-overflow-scrolling:auto}
+body{position:fixed;inset:0;touch-action:pan-y}
+button,input,textarea{font:inherit}
+input,textarea{border-radius:0}
+.hidden{display:none!important}
+.screen{position:fixed;inset:0;background:#000;color:var(--fg);overflow:hidden}
+
+/* boot / grub */
+#boot{padding:10px 12px}
+.boot-header{margin:0 0 8px;color:#fff;font:12px/1.35 var(--mono)}
+.boot-log{height:auto;max-height:80vh;overflow:hidden;white-space:pre-wrap}
+.boot-log div{margin:0 0 2px}
+.boot-hint{display:none}
+.grub-menu{margin-top:12px}
+.grub-menu pre{margin:0;color:#d0d0d0;white-space:pre-wrap}
+.grub-help{margin-top:8px!important;color:#6b6b6b!important}
+
+/* text UEFI */
+#uefi{padding:10px 12px}
+.firmware-screen{margin:0;white-space:pre-wrap;line-height:1.35;overflow:auto;height:calc(100% - 28px)}
+.firmware-input-row{height:22px;display:flex;gap:6px;align-items:center;padding-top:4px}
+.firmware-input-row span{white-space:nowrap;color:#fff}
+.firmware-input-row input{flex:1;min-width:0;border:0;outline:0;background:#000;color:#fff;padding:0;height:18px}
+
+/* first boot / login */
+.setup-terminal{height:100%;padding:10px 12px;overflow:auto;white-space:pre-wrap}
+.setup-terminal>div:first-child{white-space:pre-wrap;line-height:1.35}
+.setup-input-row{display:flex;gap:6px;align-items:center;min-height:19px}
+.setup-input-row span{white-space:nowrap;color:#fff}
+.setup-input-row input{flex:1;min-width:0;background:#000;color:#ddd;border:0;outline:0;padding:0;height:18px}
+
+/* terminal */
+.terminal{height:100%;overflow-y:auto;overflow-x:hidden;padding:10px 12px 14px;line-height:1.35;white-space:normal;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+#terminal-output{white-space:normal}
+.terminal-line{margin:0 0 2px;word-break:break-word}
+.terminal .cmdout{white-space:pre-wrap}
+.terminal-input-row{display:flex;gap:6px;align-items:flex-start;min-height:18px;margin-top:1px}
+.terminal-input-row #prompt{color:#ddd;white-space:nowrap;line-height:1.35}
+.terminal-input-row textarea{flex:1;min-width:0;resize:none;overflow:hidden;min-height:17px;max-height:140px;background:transparent;color:#ddd;border:0;outline:0;padding:0;line-height:1.35}
+pre{margin:0}
+.ansi-green,.ansi-yellow,.ansi-blue,.ansi-red,.ansi-dim{color:inherit}
+.ansi-bold{font-weight:700;color:#fff}
+
+/* vi */
+.vi-overlay{position:fixed;inset:0;z-index:100;background:#000;color:#ddd;display:flex;flex-direction:column;font-family:var(--mono);overflow:hidden}
+.vi-top,.vi-status{padding:5px 8px;background:#000;border-bottom:1px solid #222;color:#aaa;font-size:11px}
+.vi-status{border-top:1px solid #222;border-bottom:0;color:#777}
+.vi-overlay textarea{flex:1;width:100%;resize:none;border:0;outline:0;background:#000;color:#ddd;padding:10px;font:12px/1.4 var(--mono);tab-size:2}
+
+/* nyancat */
+.nyan-wrap{display:block;min-height:210px;position:relative;overflow:hidden;background:#000}
+.nyan{font-size:56px;animation:fly 3s linear infinite;position:absolute;top:85px}
+.rainbow{position:absolute;top:64px;left:-20%;font-size:25px;letter-spacing:-5px;animation:rainbow 1s linear infinite;white-space:nowrap}
+.starfield{position:absolute;inset:0;background:radial-gradient(circle at 10% 20%,#fff 0 1px,transparent 2px),radial-gradient(circle at 80% 30%,#fff 0 1px,transparent 2px),radial-gradient(circle at 55% 70%,#fff 0 1px,transparent 2px),radial-gradient(circle at 20% 80%,#fff 0 1px,transparent 2px);opacity:.7}
+.nyan-text{position:absolute;left:50%;bottom:12px;transform:translateX(-50%);color:#ddd;font-size:11px;white-space:nowrap}
+@keyframes fly{0%{left:-15%}100%{left:110%}}
+@keyframes rainbow{0%{filter:hue-rotate(0deg)}100%{filter:hue-rotate(360deg)}}
+
+@media(max-width:700px){
+  html,body{font-size:12px}
+  .terminal,.setup-terminal,#boot,#uefi{padding-left:9px;padding-right:9px}
+}
