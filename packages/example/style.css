@@ -1,0 +1,8 @@
+body {
+  margin: 0;
+  padding: 24px;
+  background: #111;
+  color: #eee;
+  font: 14px monospace;
+}
+code { color: #8f8; }

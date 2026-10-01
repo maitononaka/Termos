@@ -1,0 +1,13 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "description": "Example TERMOS package",
+  "author": "TERMOS",
+  "entry": "index.html",
+  "files": [
+    "manifest.json",
+    "index.html",
+    "style.css",
+    "app.js"
+  ]
+}
